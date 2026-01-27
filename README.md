@@ -2,15 +2,15 @@
 
 This repository is the official implementation of the **Med-TIV** framework in **Scaling Medical Reasoning Verification via Tool-Integrated Reinforcement Learning**.
 ![Med-TIV framework](framework.jpg)
-**Med-TIV** is an agentic RL framework that trains medical reasoning verifiers to dynamically retrieve evidence during evaluation.
+**Med-TIV** is an agentic RL framework that trains medical reasoning verifiers to dynamically retrieve evidence during judgement.
 
 ## 🔥 Key Features
 
 * **Dynamic Knowledge Retrieval:** Enables iterative, context-dependent retrieval during verification rather than static RAG
-* **No Step-Level Supervision:** Trains solely through reinforcement learning with trace-level labels—no fine-grained expert annotations required  
+* **No Step-Level Supervision:** Trains solely through reinforcement learning with trace-level labels—no fine-grained expert annotations required for cold start  
 * **Adaptive Curriculum Learning:** Automatically calibrates training difficulty to the evolving model capability via zero-variance filtering
 * **8× Sample Efficiency:** Achieves comparable performance to baselines with 8× fewer samples at inference time
-* **Generator-Agnostic:** Works as a verifier for any frozen generator model through test-time search
+* **Generator-Agnostic:** Works as a plug-and-play verifier for any frozen generator model through test-time search
 
 ## 📊 Results
 
@@ -120,3 +120,24 @@ python inference/medical_judge_inference.py \
 | **Encoder** | MedCPT-Article-Encoder / MedCPT-Query-Encoder |
 | **Index** | FAISS IndexFlatIP |
 | **Top-k** | 3 documents per query |
+
+## 🙏 Acknowledgements
+
+This project builds upon:
+- [VeRL-Tool](https://github.com/TIGER-AI-Lab/verl-tool) — RL framework for tool-agent training
+- [MedRAG](https://huggingface.co/MedRAG) — Medical retrieval corpus  
+- [MedCPT](https://github.com/ncbi/MedCPT) — Medical text encoder
+- [Med-PRM](https://huggingface.co/datasets/dmis-lab/llama-3.1-medprm-reward-training-set) — Medical process reward model dataset
+
+## 🖊️ Citation
+
+If you find this work helpful, please consider citing our paper:
+
+```bibtex
+@article{medtiv2025,
+  title={Scaling Medical Reasoning Verification via Tool-Integrated Reinforcement Learning},
+  author={Anonymous},
+  journal={},
+  year={2025}
+}
+```
