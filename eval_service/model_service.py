@@ -348,12 +348,13 @@ class ModelService:
         
         for action_step in range(self.tool_config.max_turns + 1):
             if action_step == self.tool_config.max_turns:
-                # Last turn: don't stop by action stop tokens
+                # Last turn: remove only tool-trigger stop tokens so we still stop at </answer>
                 if "stop" in sampling_params and sampling_params["stop"] is not None:
                     sampling_params = sampling_params.copy()  # Don't mutate original
-                    for action_stop_token in self.tool_config.action_stop_tokens:
-                        if action_stop_token in sampling_params["stop"]:
-                            sampling_params["stop"].remove(action_stop_token)
+                    tool_trigger_stop_tokens = ["</search>"]
+                    for tok in tool_trigger_stop_tokens:
+                        if tok in sampling_params["stop"]:
+                            sampling_params["stop"].remove(tok)
                 
             active_traj_ids = [traj_ids[i] for i in range(len(traj_ids)) if active_masks[i]]
             active_contexts = [contexts[i] for i in range(len(contexts)) if active_masks[i]]
