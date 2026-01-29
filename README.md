@@ -134,10 +134,13 @@ This project builds upon:
 If you find this work helpful, please consider citing our paper:
 
 ```bibtex
-@article{medtiv2025,
-  title={Scaling Medical Reasoning Verification via Tool-Integrated Reinforcement Learning},
-  author={Anonymous},
-  journal={},
-  year={2025}
+@misc{zhang2026scalingmedicalreasoningverification,
+      title={Scaling Medical Reasoning Verification via Tool-Integrated Reinforcement Learning}, 
+      author={Hang Zhang and Ruheng Wang and Yuelyu Ji and Mingu Kwak and Xizhi Wu and Chenyu Li and Li Zhang and Wenqi Shi and Yifan Peng and Yanshan Wang},
+      year={2026},
+      eprint={2601.20221},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2601.20221}, 
 }
 ```
