@@ -65,11 +65,11 @@ TENSOR_PARALLEL_SIZE=4
 NUM_MODELS=1  # Number of model instances (should equal number of GPUs)
 ENABLE_MTRL=False
 
-# Action stop tokens - model outputs </search> to trigger retrieval
-ACTION_STOP_TOKENS="</search>"
+# Action stop tokens - </search> triggers retrieval, </answer> ends final answer (align with training)
+ACTION_STOP_TOKENS="</search>,</answer>"
 
-# Inference Configuration
-MAX_TOKENS=16384
+# Inference Configuration (MAX_TOKENS=1024 per-turn cap, aligns with training max_action_length)
+MAX_TOKENS=1024
 MAX_CONCURRENT=32  # Concurrent requests (recommended: num_models * 4)
 
 # Input files: JSON files containing reasoning traces to evaluate
